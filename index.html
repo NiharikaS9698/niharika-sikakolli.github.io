@@ -3,63 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Niharika Sikakolli | Full Stack Developer</title>
+  <title>Niharika Sikakolli | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007acc;
+      --card: white;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f1f1f1;
+      --accent: #4fc3f7;
+      --card: #1e1e1e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
+
     header {
-      background-color: #007acc;
+      background-color: var(--accent);
       color: white;
       padding: 40px 20px;
       text-align: center;
+      position: relative;
     }
+
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-top: 20px;
+    }
+
     header h1 {
-      margin: 0;
+      margin: 20px 0 10px;
       font-size: 2.5rem;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      transition: background 0.3s;
     }
+
+    .toggle-btn:hover {
+      background: #e0e0e0;
+    }
+
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
+
     h2 {
-      border-bottom: 2px solid #007acc;
+      border-bottom: 2px solid var(--accent);
       padding-bottom: 5px;
-      color: #007acc;
+      color: var(--accent);
     }
+
     ul {
       padding-left: 20px;
     }
+
     a {
-      color: #007acc;
+      color: var(--accent);
       text-decoration: none;
+      transition: color 0.3s;
     }
+
+    a:hover {
+      color: #005f99;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      background: var(--card);
+    }
+
     footer {
       text-align: center;
       margin-top: 60px;
       font-size: 0.9rem;
-      color: #666;
+      color: #999;
     }
+
     .contact-links a {
       margin-right: 15px;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
+
   <header>
+    <button class="toggle-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+    <img src="https://avatars.githubusercontent.com/u/placeholder" alt="Niharika Profile Photo">
     <h1>Niharika Sikakolli</h1>
     <p>Full Stack .NET Developer | C# | React | Azure | SQL</p>
   </header>
@@ -67,34 +141,41 @@
   <main>
     <section>
       <h2>About Me</h2>
-      <p>I’m a passionate full-stack developer with 5+ years of experience building robust, scalable .NET applications and modern front-end interfaces. I love solving complex problems and creating clean, user-friendly digital experiences.</p>
+      <p>I’m a passionate full-stack developer with 5+ years of experience building robust .NET applications and modern UI interfaces. I'm currently working on expanding my cloud and DevOps skills!</p>
     </section>
 
     <section>
       <h2>Skills</h2>
       <ul>
-        <li><strong>Languages:</strong> C#, F#, JavaScript, TypeScript, SQL</li>
-        <li><strong>Frameworks:</strong> .NET Core, ASP.NET MVC, Razor, Blazor</li>
-        <li><strong>Front-End:</strong> React, HTML5, CSS3, Bootstrap</li>
-        <li><strong>Cloud & Tools:</strong> Azure, AWS, GitHub, Visual Studio, Postman</li>
+        <li><strong>Languages:</strong> C#, F#, JavaScript, SQL</li>
+        <li><strong>Frameworks:</strong> .NET Core, MVC, Razor Pages, React</li>
+        <li><strong>Tools:</strong> Azure, AWS, Git, Docker, Visual Studio</li>
       </ul>
     </section>
 
     <section>
       <h2>Projects</h2>
-      <ul>
-        <li><strong>Patient Portal –</strong> Built a secure patient portal using ASP.NET, SQL Server, and Azure Functions. <a href="#">View Project</a></li>
-        <li><strong>Inventory Dashboard –</strong> React-based dashboard with real-time data via REST APIs. <a href="#">View Project</a></li>
-        <li><strong>Resume Parser Tool –</strong> Built using .NET and NLP libraries to automate resume extraction. <a href="#">View Project</a></li>
-      </ul>
+
+      <div class="project-card">
+        <strong>Patient Portal</strong> – Secure ASP.NET portal with Azure integration. <a href="#">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <strong>Inventory Dashboard</strong> – Built in React, visualizes real-time supply data. <a href="#">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <strong>Resume Parser Tool</strong> – .NET-based app using NLP to extract resume content. <a href="#">View Project</a>
+      </div>
+
     </section>
 
     <section>
       <h2>Contact</h2>
       <p class="contact-links">
-        📧 <a href="mailto:niharikaniha9698@gmail.com.com">niharikaniha9698@gmail.com</a><br>
-        💼 <a href="www.linkedin.com/in/niharikasn1" target="_blank">LinkedIn</a> 
-        💻 <a href="https://github.com/NiharikaS9698" target="_blank">GitHub</a>
+        📧 <a href="mailto:niharika@example.com">niharika@example.com</a><br>
+        🔗 <a href="https://linkedin.com/in/niharika" target="_blank">LinkedIn</a>
+        <a href="https://github.com/niharika" target="_blank">GitHub</a>
       </p>
     </section>
   </main>
@@ -102,5 +183,14 @@
   <footer>
     © 2025 Niharika Sikakolli. All rights reserved.
   </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+
 </body>
 </html>
